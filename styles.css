@@ -23,7 +23,7 @@ body {
     linear-gradient(180deg, #faf7f2 0%, #f3ede4 100%);
 }
 
-/* overlay decoration */
+/* decorative overlay */
 body::before {
   content: "";
   position: fixed;
@@ -221,7 +221,7 @@ p {
   background: rgba(63,74,63,0.08);
 }
 
-/* soft link */
+/* soft link (zen button) */
 .soft-link {
   display: inline-block;
   margin-top: 24px;
@@ -246,31 +246,6 @@ p {
 #ygeia  { background: rgba(255,255,255,0.55); }
 #planet { background: rgba(255,255,255,0.50); }
 
-/* mobile centering */
-@media (max-width: 768px) {
-  .split-layout,
-  .panel.glass,
-  .book-panel,
-  .voices {
-    text-align: center;
-  }
-
-  .split-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .split-layout > div {
-    margin: 0 auto;
-  }
-
-  .panel.glass,
-  .book-panel,
-  .voices {
-    padding: 80px 20px;
-  }
-}
-
 /* =====================================================
    7. SPLIT LAYOUT
 ===================================================== */
@@ -292,16 +267,18 @@ p {
 }
 
 /* =====================================================
-   8. BOOK CARDS GRID
+   8. BOOK CARDS GRID (FIXED)
 ===================================================== */
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .card {
+  flex: 0 1 300px;
   background: rgba(255,255,255,0.75);
   backdrop-filter: blur(10px);
   padding: 30px 25px;
@@ -321,6 +298,20 @@ p {
   border-radius: 14px;
   background: linear-gradient(135deg, #e5e7eb, #d1d5db);
   margin-bottom: 18px;
+}
+
+/* MOBILE SWIPE */
+@media (max-width: 768px) {
+  .cards {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+
+  .card {
+    flex: 0 0 280px;
+  }
 }
 
 /* =====================================================
@@ -354,7 +345,7 @@ p {
 }
 
 /* =====================================================
-   10. VOICES (equal sub-panels)
+   10. VOICES
 ===================================================== */
 
 .voices-grid {
@@ -495,4 +486,28 @@ p {
   .cards {
     grid-template-columns: 1fr;
   }
+}
+
+/* preview button */
+.preview-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #837171;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.preview-btn:hover {
+  background-color: #333333;
+}
+
+/* BOOKS SECTION FIX */
+.books {
+  height: auto;
+  min-height: auto;
+  overflow: visible;
 }

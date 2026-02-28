@@ -1,6 +1,8 @@
 function openModal(pdf) {
   const modal = document.getElementById("previewModal");
-  const iframe = modal.querySelector("iframe");
+  const iframe = modal?.querySelector("iframe");
+
+  if (!modal) return;
 
   if (iframe && pdf) {
     iframe.src = pdf;
@@ -12,7 +14,9 @@ function openModal(pdf) {
 
 function closeModal() {
   const modal = document.getElementById("previewModal");
-  const iframe = modal.querySelector("iframe");
+  const iframe = modal?.querySelector("iframe");
+
+  if (!modal) return;
 
   modal.style.display = "none";
 
@@ -24,7 +28,7 @@ function closeModal() {
 }
 
 // Κλείσιμο με click έξω
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   const modal = document.getElementById("previewModal");
   if (modal && e.target === modal) {
     closeModal();
@@ -32,7 +36,7 @@ window.addEventListener("click", function(e) {
 });
 
 // Κλείσιμο με Escape
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     closeModal();
   }
