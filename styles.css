@@ -164,22 +164,22 @@ blockquote {
 ===================================================== */
 
 /* =====================================================
-   5.1 Cover Panel (Refined & Centered)
+   5.1 Cover Panel (Refined & Centered - High End Update)
 ===================================================== */
 
 .cover-panel {
   position: relative;
-  height: 55vh; /* Πιο compact */
+  height: 55vh; /* Πιο compact - το δικό σου */
   min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 5%;
-  background: url("assets/cover_1.png") center/cover no-repeat;
+  background: url("assets/cover_1.png") center/cover no-repeat; /* Η φωτογραφία σου είναι εδώ ασφαλής! */
 }
 
-/* Overlay λίγο πιο ήπιο */
+/* Overlay λίγο πιο ήπιο (το αρχικό σου) */
 .cover-overlay {
   position: absolute;
   inset: 0;
@@ -198,23 +198,30 @@ blockquote {
   color: white;
 }
 
-/* H1 */
+/* H1 - Νέα Τυπογραφία Lora, Μεγαλύτερο Μέγεθος & Spacing, Χωρίς Σκιές */
 .cover-content h1 {
-  margin-bottom: 0.6rem;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 7vw, 5.5rem); /* Μεγαλύτερος τίτλος */
+  margin-bottom: 0.8rem;
+  letter-spacing: 3px; /* Κινηματογραφικός "αέρας" */
+  color: #ffffff;
 }
 
-/* Subtitle */
+/* Subtitle - Νέα Τυπογραφία Montserrat */
 .cover-subtitle {
-  font-family: var(--font-heading);
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin-bottom: 1.2rem;
   color: rgba(255,255,255,0.95);
 }
 
-/* Quote */
+/* Quote - Νέα Τυπογραφία Montserrat */
 .cover-quote {
-  font-size: 1.05rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
   line-height: 1.7;
   max-width: 750px;
   margin: 0 auto;
