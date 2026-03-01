@@ -627,4 +627,19 @@ blockquote {
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.95) !important;
 }
+.reiki-icon {
+  width: 80px;          /* Ιδανικό μέγεθος για την κάρτα */
+  height: 80px;
+  object-fit: cover;    /* Διατηρεί την αναλογία */
+  border-radius: 50%;   /* Τις κάνει κυκλικές */
+  margin-bottom: 1rem;
+  border: 2px solid var(--light-sage); /* Ένα λεπτό πλαίσιο για φινίρισμα */
+  background: white;    /* Αν το parchment background της φωτό θέλει λευκό "πάτημα" */
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.path-card:hover .reiki-icon {
+  transform: scale(1.1) rotate(5deg); /* Μικρό εφέ στο hover */
+}
 
