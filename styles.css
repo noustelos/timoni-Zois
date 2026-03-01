@@ -29,10 +29,14 @@
   --font-body: 'Lora', serif;
 
   /* 1.5 Effects */
-  --glass-white: rgba(253, 251, 247, 0.85);
-  --glass-sage: rgba(124, 154, 141, 0.15); 
-  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.04);
+--glass-white: rgba(253, 251, 247, 0.85);
+--glass-sage: rgba(124, 154, 141, 0.15); 
+--transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+/* Unified Literary Shadow */
+--shadow-sage-soft:
+  0 25px 60px rgba(124, 154, 141, 0.18),
+  0 8px 25px rgba(124, 154, 141, 0.12);
 }
 /* =====================================================
    2. ΓΕΝΙΚΟΙ ΚΑΝΟΝΕΣ (BASE STYLES)
@@ -64,64 +68,128 @@ body::before {
 }
 
 /* =====================================================
-   3. ΤΥΠΟΓΡΑΦΙΑ (TYPOGRAPHY)
+   3. ΤΥΠΟΓΡΑΦΙΑ (CLEAN SYSTEM)
 ===================================================== */
 
-/* H1 - Κεντρική ποιητική δήλωση */
+body {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.85;
+  letter-spacing: 0.2px;
+  color: var(--text-sage);
+}
+
 h1 {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(2.4rem, 5vw, 4rem);
-  color: var(--deep-sage);
   line-height: 1.15;
   letter-spacing: -0.5px;
+  color: var(--deep-sage);
 }
 
-/* H2 - Λογοτεχνικό αλλά πιο ήπιο */
 h2 {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
   color: var(--deep-sage);
   text-align: center;
-  line-height: 1.25;
 }
 
-/* H3 */
 h3 {
   font-family: var(--font-heading);
   font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
   color: var(--deep-sage);
 }
 
-/* Body */
-body {
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--text-sage);
-}
-
-/* Paragraph */
 p {
-  margin-bottom: 1.4rem;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  max-width: 750px;
+  margin: 0 auto 1.4rem auto;
   color: var(--text-sage);
 }
 
-/* Quotes */
+.panel-content p,
+.hero-content p,
+.section-teaser {
+  font-size: 1.35rem;
+  line-height: 1.95;
+  color: var(--deep-sage);
+}
+
+.quote-container {
+  margin: 2rem auto;
+}
+
 blockquote {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
+  line-height: 1.65;
   color: var(--muted-sage);
-  line-height: 1.5;
+  max-width: 650px;
+  margin: 0 auto;
+}
+  /* =========================================
+   GLOBAL LITERARY TEXT SYSTEM
+========================================= */
+
+body {
+  font-family: var(--font-body);
+  font-size: 19px;            /* ελαφρώς μεγαλύτερο */
+  line-height: 1.85;          /* πιο αναπνεύσιμο */
+  letter-spacing: 0.2px;
+  color: var(--text-sage);
 }
 
-/* Secondary text */
-.teaser,
-.book-label {
+/* Όλα τα βασικά paragraphs */
+p {
+  font-size: 1.25rem;         /* ~20px */
+  line-height: 1.9;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Panels & Hero – ίδιο feeling με τα 4 βιβλία */
+.panel-content p,
+.hero-content p,
+.section-teaser {
+  font-size: 1.35rem;
+  line-height: 1.95;
+  color: var(--deep-sage);
+}
+
+/* Λογοτεχνικό H2 */
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+/* H3 για κάρτες */
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Quotes πιο “βιβλίο” */
+blockquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.75rem;
+  line-height: 1.65;
   color: var(--muted-sage);
-  font-family: var(--font-body);
+  max-width: 650px;
+  margin: 2rem auto;
+}
 }
 /* =====================================================
    4. ΚΕΦΑΛΙΔΑ (HEADER)
@@ -164,33 +232,33 @@ blockquote {
 ===================================================== */
 
 /* =====================================================
-   5.1 Cover Panel (Refined & Centered - High End Update)
+   5.1 Cover Panel – Literary & High End
 ===================================================== */
 
 .cover-panel {
   position: relative;
-  height: 55vh; /* Πιο compact - το δικό σου */
+  height: 55vh;
   min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 5%;
-  background: url("assets/cover_1.png") center/cover no-repeat; /* Η φωτογραφία σου είναι εδώ ασφαλής! */
+  background: url("assets/cover_1.png") center/cover no-repeat;
 }
 
-/* Overlay λίγο πιο ήπιο (το αρχικό σου) */
+/* Overlay – ήπιο, όχι σκοτάδι πολέμου */
 .cover-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.15)
+    rgba(0,0,0,0.32),
+    rgba(0,0,0,0.12)
   );
 }
 
-/* Περιεχόμενο */
+/* Content container */
 .cover-content {
   position: relative;
   z-index: 2;
@@ -198,94 +266,102 @@ blockquote {
   color: white;
 }
 
-/* H1 - Νέα Τυπογραφία Lora, Μεγαλύτερο Μέγεθος & Spacing, Χωρίς Σκιές */
+/* Title – βιτρίνα, αλλά όχι billboard */
 .cover-content h1 {
   font-family: 'Lora', serif;
   font-weight: 500;
-  font-size: clamp(3rem, 7vw, 5.5rem); /* Μεγαλύτερος τίτλος */
-  margin-bottom: 0.8rem;
-  letter-spacing: 3px; /* Κινηματογραφικός "αέρας" */
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
   color: #ffffff;
 }
 
-/* Subtitle - Νέα Τυπογραφία Montserrat */
+/* Subtitle – μικρή λογοτεχνική φράση */
 .cover-subtitle {
   font-family: 'Montserrat', sans-serif;
+  font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  margin-bottom: 1.2rem;
-  color: rgba(255,255,255,0.95);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  color: rgba(255,255,255,0.92);
 }
 
-/* Quote - Νέα Τυπογραφία Montserrat */
+/* Single quote – heart of the panel */
 .cover-quote {
   font-family: 'Montserrat', sans-serif;
+  font-style: italic;
   font-weight: 300;
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  line-height: 1.7;
-  max-width: 750px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  max-width: 720px;
   margin: 0 auto;
   color: rgba(255,255,255,0.85);
 }
 /* =====================================================
-   5.2 Hero Section (More Compact & Balanced)
+   5.2 Literary Panel – "Μια Φιλοσοφία Ολικής Επανένωσης"
 ===================================================== */
 
 .hero {
-  padding: 60px 5%;
+  padding: 80px 5%;
   background-color: var(--parchment);
   display: flex;
   justify-content: center;
 }
 
-/* Glass panel */
-.hero-content {
-  position: relative;
-  background: var(--glass-white);
-  backdrop-filter: blur(12px);
-  padding: 3rem 2.5rem; /* Μικρότερο */
-  border-radius: 40px;
-  max-width: 750px; /* Πιο σφιχτό */
+
+  /* Muted Sage Shadow */
+  box-shadow: 
+    0 25px 60px rgba(124, 154, 141, 0.18),
+    0 8px 25px rgba(124, 154, 141, 0.12);
+
   text-align: center;
-  border: 1px solid rgba(124, 154, 141, 0.2);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-  z-index: 1;
-}
 
-/* Background photo layer */
-.hero-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("assets/hero-photo2.jpeg") center/cover no-repeat;
-  opacity: 0.12; /* Λίγο πιο διακριτική */
-  z-index: -1;
-}
-
-/* Τίτλος spacing */
+/* Τίτλος ίδιος με book-panel */
 .hero-content h1 {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading); /* EB Garamond */
   font-weight: 500;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: clamp(2rem, 4vw, 2.6rem);
   line-height: 1.3;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--deep-sage);
 }
+
+/* Παράγραφος – ίδιο literary rhythm */
+.hero-content p {
+  font-family: var(--font-body); /* Lora */
+  font-size: 1.35rem;
+  line-height: 1.95;
+  color: var(--text-sage);
+  max-width: 680px;
+  margin: 0 auto;
+}
 /* =====================================================
-   6. ΖΩΝΕΣ ΔΡΑΣΗΣ (ACTION ZONES - PATHWAYS)
+   6. ΖΩΝΗ ΔΡΑΣΗΣ – PANEL LOGIC
 ===================================================== */
+
 .pathways {
-  background-color: var(--light-sage);
   padding: 100px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.pathways-panel {
+  background: rgba(124, 154, 141, 0.08); /* muted sage αχνό */
+  padding: 4rem 3rem;
+  max-width: 1200px;
+  width: 95%;
+  border-radius: 50px;
+  border: 1px solid rgba(124, 154, 141, 0.12);
+  box-shadow: var(--shadow-sage-soft);
+  text-align: center;
 }
 
 .path-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 3rem;
 }
 
 .path-card {
@@ -295,30 +371,35 @@ blockquote {
   text-decoration: none;
   color: var(--text-sage);
   text-align: center;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.03);
   transition: var(--transition-smooth);
+  position: relative;
 }
 
-.path-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(124, 154, 141, 0.1); }
-
+.path-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 30px 60px rgba(124, 154, 141, 0.22),
+    0 15px 35px rgba(124, 154, 141, 0.15);
+}
 /* =====================================================
    7. ΠΑΝΕΛ ΒΙΒΛΙΩΝ (Aligned with Hero Panel)
 ===================================================== */
 
 .book-panel {
   position: relative;
-  padding: 3rem 2.5rem;          /* ίδιο feeling με hero */
+  padding: 3rem 2.5rem;
   margin: 60px auto;
-  max-width: 750px;              /* ΙΔΙΟ max-width με hero */
+  max-width: 750px;
   width: 90%;
   background: var(--white);
-  border-radius: 40px;           /* ίδιο radius με hero */
+  border-radius: 40px;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-sage-soft);
+  border: 1px solid rgba(124, 154, 141, 0.15);
   text-align: center;
   z-index: 1;
 }
-
 .book-panel::before {
   content: "";
   position: absolute;
@@ -397,12 +478,13 @@ blockquote {
   padding: 2.5rem;
   border-radius: 40px;
   text-align: center;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-sage-soft);
+  border: 1px solid rgba(124, 154, 141, 0.12);
   transition: var(--transition-smooth);
 }
-
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 45px rgba(0,0,0,0.06); }
-
+.card:hover {
+  transform: translateY(-10px);
+}
 .book-cover {
   width: 100%;
   aspect-ratio: 2/3;
@@ -502,4 +584,44 @@ blockquote {
   .cover-quote {
     font-size: 0.95rem;
   }
+}/* =====================================================
+   Unified Literary Panel
+===================================================== */
+
+.literary-panel {
+  position: relative;
+  padding: 3rem 2.5rem;
+  margin: 60px auto;
+  max-width: 750px;
+  width: 90%;
+  background: var(--white);
+  border-radius: 40px;
+  box-shadow: var(--shadow-sage-soft);
+  border: 1px solid rgba(124, 154, 141, 0.15);
+  text-align: center;
+  overflow: hidden;
 }
+.card-quote blockquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--muted-sage);
+  margin: 1.2rem 0;
+}
+.path-card p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--deep-sage);
+}
+.cover-panel .cover-content .cover-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
