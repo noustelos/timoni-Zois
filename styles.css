@@ -359,11 +359,14 @@ blockquote {
 
 .path-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  /* Αλλάζουμε το minmax για να αναγκάσουμε τις 4 κάρτες να χωράνε καλύτερα */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 1.5rem;
   margin-top: 3rem;
+  width: 100%;
+  /* Αυξάνουμε το max-width για να απλωθούν οι 4 κάρτες */
+  max-width: 1200px; 
 }
-
 .path-card {
   background: var(--white);
   padding: 3rem 2rem;
